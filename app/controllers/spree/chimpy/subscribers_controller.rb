@@ -6,9 +6,9 @@ class Spree::Chimpy::SubscribersController < ApplicationController
     @subscriber.update_attributes(params[:chimpy_subscriber])
     if @subscriber.save
       Spree::Chimpy::Subscription.new(@subscriber).subscribe
-      flash[:notice] = I18n.t("spree.chimpy.subscriber.success")
+      flash[:notice] = Spree.t('chimpy.subscriber.success')
     else
-      flash[:error] = I18n.t("spree.chimpy.subscriber.failure")
+      flash[:error] = Spree.t('chimpy.subscriber.failure')
     end
 
     respond_with @subscriber, location: request.referer
