@@ -6,29 +6,29 @@ describe Spree::Chimpy::Subscription do
     let(:interface)    { mock(:interface) }
 
     before do
-      Spree::Chimpy::Config.list_name  = 'Members'
-      Spree::Chimpy::Config.merge_vars = {'EMAIL' => :email}
+      Spree::Chimpy::Config.list_name  = "Members"
+      Spree::Chimpy::Config.merge_vars = { "EMAIL" => :email }
       Spree::Chimpy.stub(list: interface)
     end
 
     context "subscribing users" do
-      let(:user)         { FactoryGirl.build(:user, subscribed: true) }
+      let(:user)         { build(:user, subscribed: true) }
       let(:subscription) { Spree::Chimpy::Subscription.new(user) }
 
       before do
-        Spree::Chimpy::Config.merge_vars = {'EMAIL' => :email, 'SIZE' => :size, 'HEIGHT' => :height}
+        Spree::Chimpy::Config.merge_vars = {"EMAIL" => :email, "SIZE" => :size, "HEIGHT" => :height}
 
         def user.size
-          '10'
+          "10"
         end
 
         def user.height
-          '20'
+          "20"
         end
       end
 
       it "subscribes users" do
-        interface.should_receive(:subscribe).with(user.email, {'SIZE' => '10', 'HEIGHT' => '20'}, customer: true)
+        interface.should_receive(:subscribe).with(user.email, {"SIZE" => "10", "HEIGHT" => "20"}, customer: true)
         subscription.subscribe
       end
 
@@ -46,7 +46,7 @@ describe Spree::Chimpy::Subscription do
     end
 
     context "resubscribe" do
-      let(:user)         { FactoryGirl.create(:user, subscribed: true) }
+      let(:user)         { create(:user, subscribed: true) }
       let(:subscription) { mock(:subscription) }
 
       before do
@@ -76,7 +76,7 @@ describe Spree::Chimpy::Subscription do
       before { interface.should_receive(:subscribe).at_least(0) }
 
       context "subscribed user" do
-        let(:user) { FactoryGirl.create(:user, subscribed: true) }
+        let(:user) { create(:user, subscribed: true) }
         it "unsubscribes" do
           interface.should_receive(:unsubscribe).with(user.email)
           subscription.unsubscribe
@@ -84,7 +84,7 @@ describe Spree::Chimpy::Subscription do
       end
 
       context "non-subscribed user" do
-        let(:user) { FactoryGirl.build(:user, subscribed: false) }
+        let(:user) { build(:user, subscribed: false) }
         it "does nothing" do
           interface.should_not_receive(:unsubscribe)
           subscription.unsubscribe
@@ -97,7 +97,7 @@ describe Spree::Chimpy::Subscription do
     before do
       Spree::Chimpy::Config.stub(key: nil)
 
-      user = FactoryGirl.build(:user, subscribed: true)
+      user = build(:user, subscribed: true)
       @subscription = Spree::Chimpy::Subscription.new(user)
     end
 
@@ -105,5 +105,4 @@ describe Spree::Chimpy::Subscription do
     specify { @subscription.unsubscribe }
     specify { @subscription.resubscribe {} }
   end
-
 end

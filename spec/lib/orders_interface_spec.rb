@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Spree::Chimpy::Interface::Orders do
   let(:interface) { Spree::Chimpy::Interface::Orders.new }
   let(:api)       { mock(:api) }
-  let(:order)     { FactoryGirl.build_stubbed(:order) }
+  let(:order)     { build_stubbed(:order) }
 
   before do
     Spree::Chimpy::Config.key = '1234'

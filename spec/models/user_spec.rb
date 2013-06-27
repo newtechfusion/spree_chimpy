@@ -7,7 +7,7 @@ describe Spree::User do
     before do
       subscription.should_receive(:subscribe)
       Spree::Chimpy::Subscription.should_receive(:new).at_least(1).and_return(subscription)
-      @user = FactoryGirl.create(:user)
+      @user = create(:user)
     end
 
     it "submits after saving" do
@@ -26,12 +26,12 @@ describe Spree::User do
   context "defaults" do
     it "subscribed by default" do
       Spree::Chimpy::Config.subscribed_by_default = true
-      Spree.user_class.new.subscribed.should == true
+      Spree.user_class.new.subscribed.should be_true
     end
 
     it "doesnt subscribe by default" do
       Spree::Chimpy::Config.subscribed_by_default = false
-      Spree.user_class.new.subscribed.should == false
+      Spree.user_class.new.subscribed.should be_false
     end
   end
 end
