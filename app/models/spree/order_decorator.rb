@@ -10,6 +10,7 @@ Spree::Order.class_eval do
   end
 
 private
+
   def handle_cancelation
     canceled = state_changed? && canceled?
     yield
