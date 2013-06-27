@@ -1,25 +1,40 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
-gem 'guard'
-gem 'guard-rspec'
-gem 'rb-inotify', :require => false
-gem 'rb-fsevent', :require => false
-gem 'rb-fchange', :require => false
-gem 'libnotify'
-gem 'database_cleaner'
-gem 'rspec-rails'
-gem 'fuubar'
-gem 'debugger'
-gem 'pry-rails'
-gem 'factory_girl_rails', '~> 1.7.0'
-gem 'faker'
-gem 'pry'
-gem 'pry-debugger'
-gem 'pry-rescue'
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+end
+
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'factory_girl'
+  gem 'ffaker'
+  gem 'simplecov'
+  gem 'database_cleaner'
+  gem 'fuubar'
+  gem 'i18n-spec'
+  gem 'guard-rspec'
+  gem 'coveralls', require: false
+end
+
+group :development do
+  # gem 'rb-inotify', require: false
+  # gem 'rb-fsevent', require: false
+  # gem 'rb-fchange', require: false
+  # gem 'libnotify'
+  # gem 'debugger'
+  # gem 'pry-rails'
+  # gem 'pry'
+  # gem 'pry-debugger'
+  # gem 'pry-rescue'
+end
+
+gem 'spree', github: 'spree/spree'
+# provides basic authentication functionality for testing parts of your engine
+gem 'spree_auth_devise', github: 'spree/spree_auth_devise'
 
 gemspec
-
-# Provides basic authentication functionality for testing parts of your engine
-gem 'spree_auth_devise', :git => "git://github.com/spree/spree_auth_devise", branch: '1-3-stable'
-gem 'spree_sample', github: 'spree/spree', branch: '1-3-stable'
-gem 'uglifier'
