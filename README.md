@@ -118,28 +118,13 @@ You can run this task recurring by setting up a cron using [whenever](https://gi
 spree_chimpy comes with a default subscription form for users who are not logged in, just add the following deface override:
 
 ```ruby
-Deface::Override.new(:virtual_path  => "spree/shared/_footer",
-                     :name          => "spree_chimpy_subscription_form",
-                     :insert_bottom => "#footer-right",
-                     :partial       => "spree/shared/guest_subscription_form")
+Deface::Override.new(virtual_path: "spree/shared/_footer",
+                     name:          "spree_chimpy_subscription_form",
+                     insert_bottom: "#footer-right",
+                     partial:       "spree/shared/guest_subscription_form")
 ```
 
 The selector and virtual path can be changed to taste.
-
-## Testing
-
-Be sure to bundle your dependencies and then create a dummy test app for the specs to run against.
-
-    $ bundle
-    $ bundle exec rake test_app
-
-To run tests:
-
-    $ bundle exec rspec spec
-
-To run tests with guard (preferred):
-
-    $ bundle exec guard
 
 ## Contributing
 
@@ -150,6 +135,7 @@ Here are some ways *you* can contribute:
 * by using prerelease versions
 * by reporting [bugs][6]
 * by suggesting new features
+* by writing [translations][8]
 * by writing or editing documentation
 * by writing specifications
 * by writing code (*no patch is too small*: fix typos, add comments, clean up inconsistent whitespace)
@@ -161,7 +147,7 @@ Starting point:
 
 * Fork the repo
 * Clone your repo
-* Run `bundle`
+* Run `bundle install`
 * Run `bundle exec rake test_app` to create the test application in `spec/test_app`
 * Make your changes
 * Ensure specs pass by running `bundle exec rspec spec`
@@ -173,6 +159,7 @@ Starting point:
 - [@bryanmtl](http://github.com/bryanmtl)
 - [@johanb](http://github.com/johanb)
 - [@iloveitaly](http://github.com/iloveitaly)
+- [@futhr](http://github.com/futhr)
 
 Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 
@@ -183,3 +170,4 @@ Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 [5]: http://www.fsf.org/licensing/essays/free-sw.html
 [6]: https://github.com/DynamoMTL/spree_chimpy/issues
 [7]: https://github.com/DynamoMTL/spree_chimpy/tree/master/LICENSE
+[8]: http://www.localeapp.com/projects/5151
