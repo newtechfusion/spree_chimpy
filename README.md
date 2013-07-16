@@ -25,7 +25,7 @@ gem 'spree_chimpy'
 Alternatively you can use the git repo directly:
 
 ```ruby
-gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy'
+gem 'spree_chimpy', github: 'futhr/spree_chimpy'
 ```
 
 Run bundler
@@ -168,6 +168,6 @@ Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 [3]: http://kb.mailchimp.com/article/what-is-ecommerce360-and-how-does-it-work-with-mailchimp
 [4]: https://login.mailchimp.com/signup
 [5]: http://www.fsf.org/licensing/essays/free-sw.html
-[6]: https://github.com/DynamoMTL/spree_chimpy/issues
-[7]: https://github.com/DynamoMTL/spree_chimpy/tree/master/LICENSE
+[6]: https://github.com/futhr/spree_chimpy/issues
+[7]: https://github.com/futhr/spree_chimpy/tree/master/LICENSE.md
 [8]: http://www.localeapp.com/projects/5151
