@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem 'uglifier'
 end
 
 group :test do
@@ -19,18 +18,6 @@ group :test do
   gem 'i18n-spec'
   gem 'guard-rspec'
   gem 'coveralls', require: false
-end
-
-group :development do
-  # gem 'rb-inotify', require: false
-  # gem 'rb-fsevent', require: false
-  # gem 'rb-fchange', require: false
-  # gem 'libnotify'
-  # gem 'debugger'
-  # gem 'pry-rails'
-  # gem 'pry'
-  # gem 'pry-debugger'
-  # gem 'pry-rescue'
 end
 
 gem 'spree', github: 'spree/spree'
