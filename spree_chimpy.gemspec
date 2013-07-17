@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree', '~> 2.0'
-  s.add_dependency 'hominid'
+  s.add_dependency 'mailchimp', '>= 0.0.9'
 
   s.add_development_dependency 'rspec-rails', '~> 2.13'
   s.add_development_dependency 'capybara', '~> 2.1.0'
