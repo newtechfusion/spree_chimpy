@@ -6,8 +6,8 @@ describe Spree::Chimpy::Subscription do
     let(:interface)    { mock(:interface) }
 
     before do
-      Spree::Chimpy::Config.list_name  = "Members"
-      Spree::Chimpy::Config.merge_vars = { "EMAIL" => :email }
+      Spree::Chimpy::Config.list_name  = 'Members'
+      Spree::Chimpy::Config.merge_vars = { 'EMAIL' => :email }
       Spree::Chimpy.stub(list: interface)
     end
 
@@ -16,19 +16,19 @@ describe Spree::Chimpy::Subscription do
       let(:subscription) { Spree::Chimpy::Subscription.new(user) }
 
       before do
-        Spree::Chimpy::Config.merge_vars = {"EMAIL" => :email, "SIZE" => :size, "HEIGHT" => :height}
+        Spree::Chimpy::Config.merge_vars = {'EMAIL' => :email, 'SIZE' => :size, 'HEIGHT' => :height}
 
         def user.size
-          "10"
+          '10'
         end
 
         def user.height
-          "20"
+          '20'
         end
       end
 
       it "subscribes users" do
-        interface.should_receive(:subscribe).with(user.email, {"SIZE" => "10", "HEIGHT" => "20"}, customer: true)
+        interface.should_receive(:subscribe).with(user.email, {'SIZE' => '10', 'HEIGHT' => '20'}, customer: true)
         subscription.subscribe
       end
 

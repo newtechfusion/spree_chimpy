@@ -9,7 +9,7 @@ if Spree.user_class
 
     delegate :subscribe, :resubscribe, :unsubscribe, to: :subscription
 
-  private
+    private
 
     def subscription
       Spree::Chimpy::Subscription.new(self)

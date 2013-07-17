@@ -25,7 +25,7 @@ gem 'spree_chimpy'
 Alternatively you can use the git repo directly:
 
 ```ruby
-gem 'spree_chimpy', github: 'futhr/spree_chimpy'
+gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy'
 ```
 
 Run bundler
@@ -118,10 +118,10 @@ You can run this task recurring by setting up a cron using [whenever](https://gi
 spree_chimpy comes with a default subscription form for users who are not logged in, just add the following deface override:
 
 ```ruby
-Deface::Override.new(virtual_path: "spree/shared/_footer",
-                     name:          "spree_chimpy_subscription_form",
-                     insert_bottom: "#footer-right",
-                     partial:       "spree/shared/guest_subscription_form")
+Deface::Override.new(:virtual_path  => "spree/shared/_footer",
+                     :name          => "spree_chimpy_subscription_form",
+                     :insert_bottom => "#footer-right",
+                     :partial       => "spree/shared/guest_subscription_form")
 ```
 
 The selector and virtual path can be changed to taste.
@@ -168,6 +168,6 @@ Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 [3]: http://kb.mailchimp.com/article/what-is-ecommerce360-and-how-does-it-work-with-mailchimp
 [4]: https://login.mailchimp.com/signup
 [5]: http://www.fsf.org/licensing/essays/free-sw.html
-[6]: https://github.com/futhr/spree_chimpy/issues
-[7]: https://github.com/futhr/spree_chimpy/tree/master/LICENSE.md
+[6]: https://github.com/DynamoMTL/spree_chimpy/issues
+[7]: https://github.com/DynamoMTL/spree_chimpy/tree/master/LICENSE.md
 [8]: http://www.localeapp.com/projects/5151
