@@ -19,10 +19,12 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
+require 'i18n-spec'
 require 'capybara/rspec'
 require 'capybara/webkit'
-require 'database_cleaner'
+require 'shoulda-matchers'
 require 'ffaker'
+require 'database_cleaner'
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
@@ -30,21 +32,19 @@ require 'spree/testing_support/factories'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/authorization_helpers'
 require 'spree/testing_support/url_helpers'
+require 'spree/testing_support/capybara_ext'
 
 FactoryGirl.find_definitions
 
 RSpec.configure do |config|
-  config.include Capybara::DSL, type: :request
   config.include FactoryGirl::Syntax::Methods
   config.include Spree::TestingSupport::UrlHelpers
   config.include Spree::TestingSupport::ControllerRequests
 
   config.extend Spree::TestingSupport::AuthorizationHelpers::Request, type: :feature
 
-  config.color = true
   config.mock_with :rspec
   config.use_transactional_fixtures = false
-  config.fail_fast = ENV['FAIL_FAST'] || false
 
   config.before :suite do
     DatabaseCleaner.strategy = :transaction
