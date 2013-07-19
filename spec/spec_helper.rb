@@ -23,8 +23,8 @@ require 'i18n-spec'
 require 'capybara/rspec'
 require 'capybara/webkit'
 require 'shoulda-matchers'
-require 'ffaker'
 require 'database_cleaner'
+require 'ffaker'
 
 Dir[File.join(File.dirname(__FILE__), 'support/**/*.rb')].each { |f| require f }
 
