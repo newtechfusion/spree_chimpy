@@ -1,9 +1,8 @@
 # Spree/MailChimp Integration
 
-[![Build Status](https://secure.travis-ci.org/futhr/spree_chimpy.png?branch=master)](http://travis-ci.org/futhr/spree_chimpy)
+[![Build Status](https://secure.travis-ci.org/futhr/spree_chimpy.png?branch=2-0-stable)](http://travis-ci.org/futhr/spree_chimpy)
 [![Dependency Status](https://gemnasium.com/futhr/spree_chimpy.png)](https://gemnasium.com/futhr/spree_chimpy)
-[![Coverage Status](https://coveralls.io/repos/futhr/spree_chimpy/badge.png?branch=master)](https://coveralls.io/r/futhr/spree_chimpy)
-[![Code Climate](https://codeclimate.com/github/DynamoMTL/spree_chimpy.png)](https://codeclimate.com/github/DynamoMTL/spree_chimpy)
+[![Coverage Status](https://coveralls.io/repos/futhr/spree_chimpy/badge.png?branch=2-0-stable)](https://coveralls.io/r/futhr/spree_chimpy)
 
 Makes it easy to integrate your [Spree][1] app with [MailChimp][2].
 
@@ -25,7 +24,7 @@ gem 'spree_chimpy'
 Alternatively you can use the git repo directly:
 
 ```ruby
-gem 'spree_chimpy', github: 'DynamoMTL/spree_chimpy'
+gem 'spree_chimpy', github: 'futhr/spree_chimpy'
 ```
 
 Run bundler
@@ -168,6 +167,6 @@ Copyright (c) 2013 Dynamo, released under the [New BSD License][7]
 [3]: http://kb.mailchimp.com/article/what-is-ecommerce360-and-how-does-it-work-with-mailchimp
 [4]: https://login.mailchimp.com/signup
 [5]: http://www.fsf.org/licensing/essays/free-sw.html
-[6]: https://github.com/DynamoMTL/spree_chimpy/issues
-[7]: https://github.com/DynamoMTL/spree_chimpy/tree/master/LICENSE.md
+[6]: https://github.com/futhr/spree_chimpy/issues
+[7]: https://github.com/futhr/spree_chimpy/blob/2-0-stable/LICENSE.md
 [8]: http://www.localeapp.com/projects/5151
