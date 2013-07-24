@@ -4,8 +4,13 @@ describe Spree::Chimpy do
 
   context "enabled" do
     before do
-      Spree::Chimpy::Interface::List.should_receive(:new).any_number_of_times.with('Members', 'Customers', false).and_return(:list)
-      Spree::Chimpy::Interface::Orders.should_receive(:new).any_number_of_times.and_return(:orders)
+      #Spree::Chimpy::Interface::List.should_receive(:new).any_number_of_times.with('Members', 'Customers', false).and_return(:list)
+      #Spree::Chimpy::Interface::Orders.should_receive(:new).any_number_of_times.and_return(:orders)
+      
+      #changing the syntax for any_number_of_times to using stub.
+
+      Spree::Chimpy::Interface::List.stub(:new).with('Members', 'Customers', false).and_return(:list)
+      Spree::Chimpy::Interface::Orders.stub(:new).and_return(:orders)
       config(key: '1234', list_name: 'Members')
     end
 
@@ -30,7 +35,10 @@ describe Spree::Chimpy do
     let(:interface) { double(:interface) }
 
     before do
-      Spree::Chimpy::Interface::List.should_receive(:new).any_number_of_times.with('Members', 'Customers', false).and_return(interface)
+      
+      #by the deprecation warning using stub instead of method.
+
+      Spree::Chimpy::Interface::List.stub(:new).with('Members', 'Customers', false).and_return(interface)
       config(key: '1234',
              list_name: 'Members',
              merge_vars: {'EMAIL' => :email, 'FNAME' => :first_name, 'LNAME' => :last_name})

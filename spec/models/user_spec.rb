@@ -21,6 +21,22 @@ describe Spree::User do
 
       @user.destroy
     end
+    
+    #to generate the api key in the chimpy mail to mailing
+    it "can generate an API key" do
+      @user.should_receive(:save!)
+      @user.generate_spree_api_key!
+      @user.spree_api_key.should_not be_blank
+
+    end
+
+    #after closing to clear the api key 
+    it "can clear an API key" do
+       @user.should_receive(:save!)
+       @user.clear_spree_api_key!
+       @user.spree_api_key.should be_blank
+    end
+
   end
 
   context "defaults" do

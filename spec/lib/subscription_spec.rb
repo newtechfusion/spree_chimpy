@@ -73,7 +73,12 @@ describe Spree::Chimpy::Subscription do
     context "subscribing" do
       let(:subscription) { Spree::Chimpy::Subscription.new(user) }
 
-      before { interface.should_receive(:subscribe).at_least(0) }
+      #before { interface.should_receive(:subscribe).at_least(0) }
+
+    #  it really just stubs the call.
+    # The code may indeed call 'interface'.sub('a', '_') and the test would pass.
+      before { interface.should_receive(:subscribe).with('a', '_').never }
+
 
       context "subscribed user" do
         let(:user) { create(:user, subscribed: true) }
